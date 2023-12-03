@@ -21,10 +21,10 @@ class student(models.Model):
     phone_number = models.CharField(max_length=11)
     present_address = models.CharField(max_length=500)
     parmanent_address = models.CharField(max_length=500)
-    image = models.CharField(max_length=25 default="")
+    image = models.CharField(max_length=25, default="")
     
     # Use a CharField to store the last two digits of the year
-    created_at = models.CharField(max_length=2, default=str(datetime.datetime.now))
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
         if not self.student_id:
