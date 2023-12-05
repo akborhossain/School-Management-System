@@ -6,12 +6,26 @@ GENDER_CHOICES = (
     ('F', 'Female'),
     ('O', 'Other'),
 )
-DEPARTMENT_CHOICES = [
+GROUP_CHOICES = [
     ('', 'Select Department'),  # Empty choice as a placeholder
     ('General', 'General'),
     ('Science', 'Science'),
     ('Commerce', 'Commerce'),
     ('Humanity', 'Humanity'),
+]
+CLASS_CHOICES = [
+    ('', 'Select Class'),
+    ('Pre-One','Pre-One' ),
+    ('One', 'One'),
+    ('Two','Two'),
+    ('Three', 'Three'),
+    ('Four', 'Four'),
+    ('Five','Five'),
+    ('Six','Six'),
+    ('Seven','Seven'),
+    ('Eight','Eight'),
+    ('Nine','Nine'),
+    ('Ten','Ten'),
 ]
 
 
