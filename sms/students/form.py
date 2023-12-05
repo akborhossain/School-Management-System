@@ -58,10 +58,14 @@ class departmentForm(forms.ModelForm):
         model=department
         fields='__all__'
         widgets = {
-            'dept_name': forms.Select(
-                choices=department.DEPARTMENT_CHOICES,
+            'group': forms.Select(
+                choices=department.GROUP_CHOICES,
+                widget=forms.Select()),
+            'class_id': forms.Select(
+                choices=department.CLASS_CHOICES,
                 widget=forms.Select()),
         }
         labels={
-            'dept_name':'Group',
+            'group':'Group',
+            'class_id':'Class',
         }
