@@ -36,7 +36,6 @@ class student(models.Model):
         self.image = str(self.student_id) + '.jpg'
         super(student, self).save(*args, **kwargs)
 class department(models.Model):
-    dept_code=models.CharField(max_length=25)
     dept_name=models.CharField(max_length=100)
     student_id = models.ForeignKey(student, on_delete=models.CASCADE)
 

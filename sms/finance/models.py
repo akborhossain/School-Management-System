@@ -1,9 +1,11 @@
 from django.db import models
 from students.models import student
+from teachers.models import teacher
 
 # Create your models here.
 class student_ac(models.Model):
-    balance=models.FloatField()
+    paid=models.FloatField()
+    payable=models.FloatField()
     ac_no=models.ForeignKey(student, on_delete=models.CASCADE, unique=True, primary_key=True)
 
 class transection_detail(models.Model):
@@ -27,3 +29,12 @@ class transection(models.Model):
     ac_no=models.ForeignKey(student_ac,on_delete=models.CASCADE)
     trxdid=models.ForeignKey(transection_detail, on_delete=models.CASCADE)
 
+class teacher_ac(models.Model):
+    balance=models.FloatField()
+    paid=models.FloatField()
+    ac_no=models.ForeignKey(teacher, on_delete=models.CASCADE, unique=True, primary_key=True)
+
+class salary(models.Model):
+    created_at=models.DateTimeField(auto_now_add=True)
+    amount=models.FloatField()
+    teacher_id=models.CharField(max_length=10)
