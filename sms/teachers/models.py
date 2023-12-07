@@ -31,6 +31,9 @@ class teacher(models.Model):
             # Generate student_id with the last two digits of the current year followed by eight zeroes
             current_year = str(datetime.datetime.now().year)[-2:]
             self.teacher_id = int(current_year + '01')
+            if teacher.objects.filter(teacher_id=self.teacher_id).exists():
+                last_teacher=teacher.objects.last()
+                self.teacher_id=(last_teacher.teacher_id)+1
 
         self.username = str(self.teacher_id)
         self.image = str(self.teacher_id) + '.jpg'

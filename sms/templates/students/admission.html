@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Student Admission
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="POST" novalidate> {% csrf_token %}
+        <fieldset>
+            {{ form.as_p }}
+        </fieldset>
+
+        <fieldset>
+
+            {{ form1.as_p }}
+            
+        </fieldset>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end"> <!-- Add the text-right class to align content to the right -->
+            <input class="btn btn-primary me-md-2" type="submit" value="Next">
+        </div>
+    </form>
+    <div class="card-footer text-body-secondary">
+       
+      </div>
+
+</div>
+{% endblock content %}

@@ -6,7 +6,7 @@ from teachers.models import teacher
 class student_ac(models.Model):
     paid=models.FloatField()
     payable=models.FloatField()
-    ac_no=models.ForeignKey(student, on_delete=models.CASCADE, unique=True, primary_key=True)
+    ac_no=models.OneToOneField(student, on_delete=models.CASCADE, unique=True, primary_key=True)
 
 class transection_detail(models.Model):
     trxdid=models.AutoField(primary_key=True)
@@ -32,7 +32,7 @@ class transection(models.Model):
 class teacher_ac(models.Model):
     balance=models.FloatField()
     paid=models.FloatField()
-    ac_no=models.ForeignKey(teacher, on_delete=models.CASCADE, unique=True, primary_key=True)
+    ac_no=models.OneToOneField(teacher, on_delete=models.CASCADE, unique=True, primary_key=True)
 
 class salary(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
