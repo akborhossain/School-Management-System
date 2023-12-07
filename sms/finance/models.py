@@ -10,7 +10,7 @@ class student_ac(models.Model):
 
 class transection_detail(models.Model):
     trxdid=models.AutoField(primary_key=True)
-    admition_fee=models.FloatField()
+    admission_fee=models.FloatField()
     tution_fee=models.FloatField()
     exam_fee=models.FloatField()
     computer_lab=models.FloatField()
@@ -20,6 +20,7 @@ class transection_detail(models.Model):
     development_charge=models.FloatField()
     id_card=models.FloatField()
     fine=models.FloatField()
+    total=models.FloatField()
 
 class transection(models.Model):
     trxid=models.CharField(max_length=25, unique=True)
