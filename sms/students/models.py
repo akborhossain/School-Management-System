@@ -12,9 +12,6 @@ class student(models.Model):
         ('O', 'Other'),]
     # Using AutoField to start from '2300000001' and auto-increment
     student_id = models.AutoField(primary_key=True, unique=True, editable=False)
-    username = models.CharField(max_length=10, unique=True, default="")
-
-    password = models.CharField(max_length=128, default=make_password("1234"))
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
@@ -27,7 +24,7 @@ class student(models.Model):
     phone_number = models.CharField(max_length=11)
     present_address = models.CharField(max_length=500)
     parmanent_address = models.CharField(max_length=500)
-    image = models.CharField(max_length=25, default="")
+    image = models.ImageField()
     
     # Use a CharField to store the last two digits of the year
     created_at = models.DateTimeField(auto_now_add=True)
@@ -41,8 +38,6 @@ class student(models.Model):
                 latest_student = student.objects.last()
                 self.student_id = (latest_student.student_id)+1
 
-        self.username = str(self.student_id)
-        self.image = str(self.student_id) + '.jpg'
         super(student, self).save(*args, **kwargs)
 class department(models.Model):
 
@@ -69,5 +64,5 @@ class department(models.Model):
     ]
     class_id=models.CharField(max_length=10, choices=CLASS_CHOICES)
     group=models.CharField(max_length=20, choices=GROUP_CHOICES)
-    student_id = models.ForeignKey(student, on_delete=models.CASCADE)
+    student_id = models.OneToOneField(student, on_delete=models.CASCADE)
 

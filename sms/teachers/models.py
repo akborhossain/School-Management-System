@@ -5,9 +5,6 @@ import datetime
 class teacher(models.Model):
     
     teacher_id = models.AutoField(primary_key=True, unique=True, editable=False)
-    username = models.CharField(max_length=10, unique=True, default="")
-
-    password = models.CharField(max_length=128, default=make_password("1234"))
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     dept=models.CharField(max_length=25)
@@ -21,7 +18,7 @@ class teacher(models.Model):
     phone_number = models.CharField(max_length=11)
     present_address = models.CharField(max_length=500)
     parmanent_address = models.CharField(max_length=500)
-    image = models.CharField(max_length=25 ,default="")
+    image = models.ImageField()
     
     # Use a CharField to store the last two digits of the year
     created_at = models.DateTimeField(auto_now_add=True)
@@ -35,6 +32,4 @@ class teacher(models.Model):
                 last_teacher=teacher.objects.last()
                 self.teacher_id=(last_teacher.teacher_id)+1
 
-        self.username = str(self.teacher_id)
-        self.image = str(self.teacher_id) + '.jpg'
         super(teacher, self).save(*args, **kwargs)

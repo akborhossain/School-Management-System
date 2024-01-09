@@ -3,6 +3,8 @@ from django.views import View
 from .forms import studentForm, departmentForm
 from .models import student, department
 from django.utils import timezone
+
+
 class AdmissionView(View):
     template_name = 'students/admission.html'
 
