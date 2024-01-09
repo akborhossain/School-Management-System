@@ -19,4 +19,13 @@ class CreateUser(View):
     def post(self,request, *args, **kwargs):
         pass
 
+class ForgotPassword(View):
+    template_name='home/forgot_password.html'
+    def get(self,request,*args,**kwargs):
+        form=CreateUserForm()
+        return render(request,self.template_name,{'form':form})
+
+    def post(self,request, *args, **kwargs):
+        pass
+
 
